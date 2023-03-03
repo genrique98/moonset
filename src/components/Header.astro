@@ -2,19 +2,33 @@
 import HeaderLink from "./HeaderLink.astro";
 ---
 
-<header>
-  <nav>
-    <HeaderLink href="/">Home</HeaderLink>
-    <HeaderLink href="https://github.com/withastro/astro" target="_blank">
-      GitHub
-    </HeaderLink>
+<header class="w-full">
+  <nav class="flex flex-row items-start justify-between w-full relative mx-auto text-gray-900">
+  
+    <a class="flex flex-row " href="/">
+      <img width={150} height={150} src="/thesphere.png" alt=""/>
+      <div class="flex flex-col items-left justify-center ml-2">
+        <h1 class="font-sans font-bold text-5xl ml-2">Moonset</h1>
+        <p class="mt-0 ml-3 text-base text-black-400 font-regular">
+          Art Project 0000
+        </p>
+      </div>
+    </a>
+
+    <div class="flex items-start">
+      <a href="https://github.com/genrique98/moonset" target="_blank">
+        GitHub
+      </a> 
+    </div>
+
   </nav>
 </header>
-<style>
+
+<!-- <style>
   header {
     margin: 0em 0 2em;
   }
   h2 {
     margin: 0.5em 0;
   }
-</style>
+</style> -->

@@ -2,7 +2,6 @@
 title: "Weird Cliche"
 description: "Explaining why I started this"
 pubDate: "Mar 01 2023"
-heroImage: "/placeholder-hero.jpg"
 ---
 
 I NEED TO WRITE. I keep telling myself that I need to write. It’s certainly the weirdest cliche. But here I am.

@@ -1,8 +1,8 @@
 ---
-title: "How I Started"
-description: "From idea to text"
+title: "How I Started a Blog about Starting Stuff"
+description: "From idea to blog"
 pubDate: "Feb 28 2023"
-heroImage: "/placeholder-hero.jpg"
+
 ---
 
 I'm trying to start a blog about the concept of starting. I plan on writing the blog posts, coding the website, and reading about ways to improve the website. I don't know where to start, which is ironic given that the blog is literally about starting. How should I start?
