@@ -22,9 +22,6 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
         border-top: 1px solid #ddd;
         margin: 1rem 0;
       }
-      .last-updated-on {
-        font-style: italic;
-      }
     </style>
   </head>
 
@@ -33,16 +30,16 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
     <main class="flex items-center mt-10">
       <article class="w-prose">
         <!-- {heroImage && <img width={720} height={360} src={heroImage} alt="" />} -->
-        <h1 class="title">{title}</h1>
+        <h1 class="font-sans font-bold lg:text-4xl md:text-xl sm:text-xl text-xl text-[#4343FE]">{title}</h1>
         <FormattedDate date={pubDate} />
         {
           updatedDate && (
-            <div class="last-updated-on">
+            <div class="italic">
               Last updated on <FormattedDate date={updatedDate} />
             </div>
           )
         }
-        <hr />
+        <hr class="mb-10" />
         <slot />
       </article>
     </main>
