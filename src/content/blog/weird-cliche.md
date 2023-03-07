@@ -25,4 +25,4 @@ I always feel like I’m missing something. It’s like a brain itch won’t go 
 <br/>
 
 <br/>
-I will write about some or all of these fears because they are ideas and habits that will have come up as I’m building and writing for this site. 
+I will write about some or all of these fears because they are just ideas and habits that will come up as I’m building and writing for this site. 
