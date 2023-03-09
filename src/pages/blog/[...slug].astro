@@ -1,6 +1,10 @@
 ---
 import { CollectionEntry, getCollection } from "astro:content";
 import BlogPost from "../../layouts/BlogPost.astro";
+import Blockquote from "../../mdx-components/Blockquote.astro";
+import Subheader from "../../mdx-components/Subheader.astro";
+
+// const components = await Astro.glob('../../mdx-components/*.astro'); 
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -13,8 +17,9 @@ type Props = CollectionEntry<"blog">;
 
 const post = Astro.props;
 const { Content } = await post.render();
+
 ---
 
 <BlogPost {...post.data}>
-  <Content />
+  <Content components={{blockquote: Blockquote, h2: Subheader}} />
 </BlogPost>
