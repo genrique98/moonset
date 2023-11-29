@@ -1,0 +1,50 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import FormattedDate from "../components/FormattedDate.astro";
+import { getCollection } from "astro:content";
+import Tabs from "../components/Tabs.astro";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
+    <body class="w-prose max-w-4xl">
+        <Header title={SITE_TITLE} />
+        <main>
+            <section class="mt-5 px-20">
+                <div class="rounded-md border-2 border-[#4343FE] p-2 ">
+                    <p class="text-sm">I started this blog to show to myself how much I overcomplicate things. It is probably useless, but </p>
+                </div>
+            </section>
+            <section class="mt-0">
+                <Tabs />
+            </section>
+            <section class="mt-10 w-full">
+                <!-- <p>This is an intro</p> -->
+                <ul >
+                    {
+                        posts.map((post) => (
+                            <li class="mt-8">
+                                <div class="flex justify-between">
+                                    <a class="flex flex-wrap text-xl lg:text-2xl md:text-xl sm:text-xl text-[#3763FF] font-semibold" href={`/blog/${post.slug}/`}>{post.data.title}</a>
+                                    <FormattedDate date={post.data.pubDate} />
+                                </div>
+                                <p class="text-sm lg:text-base md:text-base sm:text-base text-black-100"><span class="text-bold text-base text-yellow-500 mr-2">&rarr;</span>{post.data.description}</p>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </section>
+        </main>
+        <Footer />
+    </body>
+</html>
