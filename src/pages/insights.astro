@@ -6,6 +6,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import FormattedDate from "../components/FormattedDate.astro";
 import { getCollection } from "astro:content";
 import Tabs from "../components/Tabs.astro";
+import Mobile_test from "../components/Mobile-test";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
@@ -18,7 +19,8 @@ const posts = (await getCollection("blog")).sort(
         <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     </head>
     <body class="w-prose max-w-4xl">
-        <Header title={SITE_TITLE} />
+        <!-- <Header title={SITE_TITLE} /> -->
+        <Mobile_test />
         <main>
             <section class="mt-5 px-20">
                 <div class="rounded-md border-2 border-[#4343FE] p-2 ">

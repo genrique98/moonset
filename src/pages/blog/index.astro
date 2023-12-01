@@ -5,6 +5,7 @@ import Footer from "../../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
+import Mobile_test from "../../components/Mobile-test";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
@@ -33,16 +34,22 @@ const posts = (await getCollection("blog")).sort(
       }
     </style>
   </head>
-  <body>
-    <Header />
-    <main>
-      <section>
-        <ul>
+  <body class="px-4 lg:mt-5 md:mt-3 sm:mt-2 mt-2 mx-0  w-screen border-0 border-[#4343FE]">
+    <!-- <Header /> -->
+    <Mobile_test client:load />
+    <main class="h-screen">
+      <section class="border-0 border-[#4343FE] mt-5 p-0 w-full h-1/3 flex flex-col justify-start">
+        <h1 class="text-3xl font-bold text-[#4343FE] text-left">Insights</h1>
+        <ul class="border-0 border-red-400 flex flex-col py-4 mt-4">
           {
             posts.map((post) => (
-              <li>
-                <FormattedDate date={post.data.pubDate} />
-                <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+              <li class="border-0 border-[#4343FE] h-10 flex justify-start items-center">
+                <a href={`/blog/${post.slug}/`} class="indent-4">
+                  <FormattedDate date={post.data.pubDate} class=""/>
+                  <span class="ml-3">
+                    {post.data.title}
+                  </span>
+                </a>
               </li>
             ))
           }
