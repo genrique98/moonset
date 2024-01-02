@@ -13,7 +13,7 @@ const posts = (await getCollection("blog")).sort(
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="flex justify-center">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <style>
@@ -34,7 +34,7 @@ const posts = (await getCollection("blog")).sort(
       }
     </style>
   </head>
-  <body class="px-4 lg:mt-5 md:mt-3 sm:mt-2 mt-2 mx-0  w-screen border-0 border-[#4343FE]">
+  <body class="px-4 lg:mt-5 md:mt-3 sm:mt-2 mt-2 mx-0  w-screen border-0 border-[#4343FE] w-full lg:w-10/12">
     <!-- <Header /> -->
     <Mobile_test client:load />
     <main class="h-screen">
