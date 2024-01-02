@@ -4,8 +4,8 @@ import { useState } from "preact/hooks"
 import HeaderLink from "./HeaderLink.astro";
 
 const links = [
-    { href: "/", text: "Solutions" },
-    { href: "/expertise", text: "Expertise"},
+    { href: "/", text: "Overview" },
+    { href: "/expertise", text: "Services"},
     { href: "/clients", text: "Clients" },
     { href: "/about", text: "Contact" },
     { href: "/blog", text: "Insights" }
@@ -24,9 +24,10 @@ export default function Mobile_test() {
             <nav class="relative w-full justify-between items-center flex">
                     <div class="flex items-center justify-center">
                         <a class="flex flex-row items-center" href="/">
-                            <img width={100} height={100} src="/thesphere.png" alt="" class="h-[100px] w-[100px]"/>
+                            <img width={100} height={100} src="/duotone-moon-logo-2.png" alt="" class="h-[100px] w-[100px]"/>
                             <div class="flex flex-col items-left justify-center ml-2">
-                                <h1 class="font-sans font-bold lg:text-6xl md:text-6xl sm:text-4xl text-4xl text-[#4343FE]">Moonset</h1>
+                                <h1 class="font-sans font-bold lg:text-8xl md:text-6xl sm:text-5xl text-5xl text-[#171738]">Moonset</h1>
+                                {/* <img src="/moonset-logo.svg" alt="logo" class="h-[60px]"/> */}
                             </div>
                         </a>
 
@@ -46,17 +47,18 @@ export default function Mobile_test() {
 
                     {/* <!-- Mobile Menu open: "block", Menu closed: "hidden" --> */}
                     <div class={`${isMenuOpen ? 'translate-x-0 opacity-100 block bg-gradient-to-r from-[#EEF2FF] via-[#EEF2FF] to-[#EEF2FF] border-b-8 border-[#4343FE]' : 'hidden '} lg:border-b-0 md:border-b-0 md:relative bg-transparent absolute inset-x-0 z-20 w-full px-0 py-4 transition-all duration-150 ease-in-out md:mt-0 md:p-0 md:top-0 md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center mt-72 rounded-b-lg `} >
-                        <div class="flex flex-col md:flex-row md:mx-0 justify-center items-center rounded-xl lg:border-2 lg:border-[#4343FE] w-full lg:p-1">
+                        <div class="flex flex-col md:flex-row md:mx-0 justify-center items-center rounded-xl lg:border-2  lg:border-[#171738] w-full lg:p-1">
                             {links.map((link) => (
                                 // <HeaderLink class="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href={link.href} slot="name">{link.text}</HeaderLink>
-                                <div class="px-1 my-2 mx-2 font-bold text-[#4343FE] lg:text-sm md:text-sm sm:text-xs text-xs">
-                                    <a class="my-4 md:my-0 transition-colors duration-300 transform hover:text-blue-500 md:my-0" href={link.href}>{link.text}</a>
+                                <div class="px-1 my-2 mx-2 font-bold text-[#171738] lg:text-sm md:text-sm sm:text-xs text-xs">
+                                    <a class="my-4 md:my-0 transition-colors duration-300 transform hover:text-[#4343FE] md:my-0" href={link.href}>{link.text}</a>
                                 </div>
                             ))}
                         </div>
                         
                         <div class={`${isMenuOpen ? 'hidden' : ''} ml-4 h-full flex items-center justify-end`} >
-                            <span class="w-[50px] h-[50px] rounded-full bg-gradient-to-r from-[#171738] to-[#4343FE]"></span>
+                            {/* <span class="w-[50px] h-[50px] rounded-full bg-gradient-to-r from-[#171738] to-[#EDF0FF]"></span> */}
+                            <span class="w-[50px] h-[50px] rounded-full bg-[#171738]"></span>
                         </div>
 
                         {/* <div class="flex justify-center ">
