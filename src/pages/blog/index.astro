@@ -49,6 +49,7 @@ const posts = (await getCollection("blog")).sort(
                   <span class="ml-3">
                     {post.data.title}
                   </span>
+                  <p class="text-base lg:text-base md:text-base sm:text-base text-[#171738]">{post.data.description}</p>
                 </a>
               </li>
             ))

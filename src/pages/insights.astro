@@ -35,11 +35,12 @@ const posts = (await getCollection("blog")).sort(
                 <ul >
                     {
                         posts.map((post) => (
-                            <li class="mt-8">
+                            <li class="mt-8 border-2 border-[#171738]">
                                 <div class="flex justify-between">
                                     <a class="flex flex-wrap text-xl lg:text-2xl md:text-xl sm:text-xl text-[#3763FF] font-semibold" href={`/blog/${post.slug}/`}>{post.data.title}</a>
                                     <FormattedDate date={post.data.pubDate} />
                                 </div>
+                                <p class="text-base lg:text-base md:text-base sm:text-base text-[#171738]">{post.data.description}</p>
                                 <p class="text-sm lg:text-base md:text-base sm:text-base text-black-100"><span class="text-bold text-base text-yellow-500 mr-2">&rarr;</span>{post.data.description}</p>
                             </li>
                         ))
