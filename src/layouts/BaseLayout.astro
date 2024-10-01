@@ -1,0 +1,37 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+// import MobileMenu from "../components/Mobile-menu.astro";
+import Mobile from "../components/Mobile.tsx";
+// import Mobile_test from "../components/Mobile.tsx";
+import Footer from "../components/Footer.astro";
+// import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import Tabs from "../components/Tabs.astro";
+import Hero from "../components/Hero.astro";
+import Thero from "../components/thero.astro";
+
+// const SITE_TITLE = "Moonset";
+// const SITE_DESCRIPTION = "A Web Development agency empowering stellar businesses.";
+const { title, description, image, articleDate } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+	<body
+		class="mt-2 w-full border-0 border-red-400 px-2 sm:mx-auto sm:mt-2 sm:max-w-2xl md:max-w-6xl md:overflow-visible lg:mt-4 lg:max-w-7xl lg:px-4"
+	>
+		<Mobile client:load />
+		<main class="w-full border-0 border-brand-black pb-32 flex flex-col items-center gap-y-24">
+			<slot />
+		</main>
+		<Footer />
+		<style>
+			body {
+				margin-left: calc(100vw - 100%);
+			}
+		</style>
+	</body>
+</html>

@@ -1,41 +1,42 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
-import Mobile_test from "../components/Mobile-test";
+import type { MarkdownHeading } from "astro";
+import BaseLayout from "./BaseLayout.astro";
 
-type Props = CollectionEntry<"blog">["data"];
+// type Props = CollectionEntry<"blog">["data"];
+type Props = {
+	id: CollectionEntry<"blog">["id"];
+	data: CollectionEntry<"blog">["data"];
+	headings: MarkdownHeading[];
+};
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { data, headings, id } = Astro.props;
+const { title, description, pubDate, heroImage, tags, updatedDate } = data;
 
+const articleDate = pubDate.toISOString();
 ---
 
-<html lang="en" class="flex justify-center">
-  <head>
-    <BaseHead title={title} description={description} />
-    
-  </head>
-
-  <body class="px-4 lg:mt-5 md:mt-3 sm:mt-2 mt-2 mx-0 w-screen border-0 border-[#4343FE]  w-full lg:w-10/12">
-    <!-- <Header /> -->
-    <Mobile_test client:load/>
-    <main class="flex mt-5 w-full h-screen border-0 border-[#4343FE]">
-      <article class="w-prose">
-        <!-- {heroImage && <img width={720} height={360} src={heroImage} alt="" />} -->
-        <h1 class="font-sans font-bold lg:text-4xl md:text-xl sm:text-xl text-xl text-[#4343FE]">{title}</h1>
-        <FormattedDate date={pubDate} />
-        {
-          updatedDate && (
-            <div class="italic mt-10">
-              Last updated on <FormattedDate date={updatedDate} />
-            </div>
-          )
-        }
-        <slot />
-      </article>
-    </main>
-    <Footer />
-  </body>
-</html>
+<BaseLayout title={title} description={description}>
+	<div class="pt-16 sm:pt-16">
+		<article class="w-prose">
+			<!-- {heroImage && <img width={720} height={360} src={heroImage} alt="" />} -->
+			<h1
+				class="font-sans text-xl font-bold text-[#4343FE] sm:text-xl md:text-xl lg:text-4xl"
+			>
+				{title}
+			</h1>
+			<FormattedDate date={pubDate} />
+			{
+				updatedDate && (
+					<div class="mt-10 italic">
+						Last updated on <FormattedDate date={updatedDate} />
+					</div>
+				)
+			}
+			<div class="mt-10">
+				<slot />
+			</div>
+		</article>
+	</div>
+</BaseLayout>
