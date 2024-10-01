@@ -1,7 +1,8 @@
 ---
 const props = Astro.props;
 ---
-<blockquote {...props} class="rounded-md border-1 border-[#4343FE] p-2 ">
-  <span class="mb-1">“</span>
-  <slot />
+
+<blockquote {...props} class="bg-blue-50 p-4">
+	<span class="mb-2 text-4xl text-blue-600">“</span>
+	<slot />
 </blockquote>
