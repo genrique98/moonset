@@ -1,9 +1,16 @@
 {
-  "extends": "astro/tsconfigs/strict",
-  "compilerOptions": {
-    "strictNullChecks": true,
-    "jsx": "react-jsx",
-    "jsxImportSource": "preact",
-  },
-  "allowImportingTsExtensions": true,
+	"extends": "astro/tsconfigs/strict",
+	"compilerOptions": {
+		"strictNullChecks": true,
+		"jsx": "react-jsx",
+		"jsxImportSource": "react",
+		// "moduleResolution": "node",
+		// "esModuleInterop": true,
+		// "module": "esnext",
+		// "target": "es5",
+		// "allowJs": true,
+		// "lib": ["es6", "dom"],
+	},
+	"allowImportingTsExtensions": true,
+	"exclude": ["node_modules", "**/node_modules/*", ".vscode", "dist"]
 }
