@@ -1,0 +1,50 @@
+---
+import Disclosures, { type Card } from "../components/Disclosures";
+
+const faqs: Card[] = [
+	{
+		question: "How long does it take?",
+		answer:
+			"1 month!",
+	},
+	{
+		question: "What web technologies do you use?",
+		answer:
+			"We use Astro, Tailwind, and deploy on Cloudflare's CDN.",
+	},
+];
+---
+
+<section class="flex w-full lg:max-w-4xl flex-col items-center justify-center">
+	<div class="mt-0 flex w-full flex-col items-start lg:mt-0">
+		<div
+			class="flex w-full flex-col items-center justify-start rounded-xl border-0 border-brand-black gap-y-8"
+		>
+			<div class="flex flex-col text-white-100 text-center gap-y-4">
+				<h3
+					class="font-sans text-4xl font-bold leading-none text-brand-black md:text-5xl lg:text-6xl"
+				>
+					Frequently asked questions
+				</h3>
+				<p class="text-sm text-brand-black md:text-lg lg:text-xl">
+					Have a different question and can't find the answer you’re looking
+					for? Reach out to our support team by sending us an email and we’ll
+					get back to you as soon as we can.
+				</p>
+			</div>
+
+			<div class="text-white-100 w-full text-left flex flex-col items-center gap-y-2 my-2">
+				{
+					faqs.map((faq) => (
+                        <Disclosures 
+                            key={Math.floor(Math.random() * 10)} 
+                            answer={faq.answer} 
+                            question={faq.question} 
+                            client:load >
+                        </Disclosures>
+					))
+				}
+			</div>
+		</div>
+	</div>
+</section>
