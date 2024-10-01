@@ -1,0 +1,127 @@
+---
+type Card = {
+	q_id: string;
+	a_id: string;
+	question: string;
+	answer: string;
+};
+
+const faqs: Card[] = [
+	{
+		q_id: "q-1",
+		a_id: "a-1",
+		question: "How long does it take?",
+		answer:
+			"1 month!",
+	},
+	{
+		q_id: "q-2",
+		a_id: "a-2",
+		question: "What web technologies do you use?",
+		answer:
+			"We use Astro, Tailwind, and deploy on Cloudflare's CDN.",
+	},
+];
+---
+
+<section class="flex h-screen w-full flex-col items-center justify-start">
+	<div class="mt-5 flex w-full flex-col items-start lg:mt-20">
+		<div
+			class="flex w-full flex-col items-center justify-start rounded-xl border-0 border-brand-black"
+		>
+			<div class="text-white-100 text-center">
+				<h3
+					class="pb-2 font-sans text-4xl font-semibold leading-none text-brand-black md:text-5xl lg:text-5xl"
+				>
+					Frequently asked questions
+				</h3>
+				<p class="text-sm text-brand-black md:text-lg lg:text-xl">
+					Have a different question and can't find the answer you’re looking
+					for? Reach out to our support team by sending us an email and we’ll
+					get back to you as soon as we can.
+				</p>
+			</div>
+
+			<div class="text-white-100 w-full text-center">
+				{/* PREGUNTA */}
+				{
+					faqs.map((faq) => (
+						<div
+							key={Math.floor(Math.random() * 10)}
+							class="mt-4 flex w-full flex-col rounded-md border-2 border-brand-black p-6 text-xl text-brand-black"
+						>
+							<div
+								id="openDialog"
+								class="flex w-full cursor-pointer flex-row justify-between"
+							>
+								<h4 class="start-left font-semibold text-brand-black">
+									{faq.question}
+								</h4>
+								{/* <span class="text-orange-200 text-bold" >{hidden ? <p>&uarr;</p> : <p>&darr;</p>}</span> */}
+								<button id={faq.q_id} class="text-bold text-brand-black">
+									&uarr;
+								</button>
+							</div>
+							<p
+								id={faq.a_id}
+								class="mt-4 text-left text-sm text-brand-black"
+								style="display: none"
+							>
+								{faq.answer}
+							</p>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	// <script is:inline>
+
+    class AstroGreet extends HTMLElement {
+        constructor() {
+            super();
+
+            // Read the message from the data attribute.
+            const message = this.dataset.message;
+            const button = this.querySelector('button');
+            button.addEventListener('click', () => {
+                alert(message);
+            });
+        }
+    }
+
+    customElements.define('astro-greet', AstroGreet);
+
+	const questions = new Map();
+
+	// Adding properties as entries
+	questions.set("q-1", "a-1");
+	questions.set("q-2", "a-2");
+
+	let isOpen = {
+		"a-1": false,
+		"a-2": false,
+	};
+
+	// Set the store to true when the button is clicked
+	function openDialog(event) {
+		const buttonId = event.target.id;
+		const elementId = questions.get(buttonId);
+		if (isOpen[elementId]) {
+			isOpen[elementId] = false;
+			document.getElementById(elementId).style.display = "none";
+		} else {
+			isOpen[elementId] = true;
+			document.getElementById(elementId).style.display = "block";
+		}
+	}
+	//  https://www.youtube.com/watch?v=6-dHkHgP2LE
+	// Add an event listener to the button
+
+	questions.forEach((id, question) => {
+		document.getElementById(question).addEventListener("click", openDialog);
+	});
+</script>

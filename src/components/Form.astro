@@ -1,0 +1,152 @@
+<form
+	id="formElem"
+	onsubmit="onSubmit()"
+	class="flex w-full flex-col space-y-2"
+>
+	<!-- class="flex w-full flex-row items-center md:space-x-0 md:flex-row flex-wrap" -->
+	<div class="grid w-full grid-cols-2 gap-2">
+		<div class="flex w-full flex-col">
+			<label
+				class="flex flex-col rounded-xl border-2 border-[#171738] bg-none p-2 font-bold"
+			>
+				Company:
+				<input
+					type="text"
+					name="company"
+					placeholder="Acme"
+					class="bg-transparent font-normal"
+				/>
+			</label>
+		</div>
+		<!-- {errors.username && <p>{errors.username}</p>} -->
+		<div class="flex w-full flex-col">
+			<label
+				class="flex flex-col rounded-xl border-2 border-[#171738] bg-none p-2 font-bold"
+			>
+				Name:
+				<input
+					type="text"
+					name="name"
+					placeholder="John"
+					class="bg-transparent font-normal"
+				/>
+			</label>
+		</div>
+
+		<div class="flex w-full flex-col">
+			<label
+				class="flex flex-col rounded-xl border-2 border-[#171738] bg-none p-2 font-bold"
+			>
+				Email:
+				<input
+					type="text"
+					name="email"
+					placeholder="acme@example.com"
+					class="bg-transparent font-normal"
+				/>
+			</label>
+		</div>
+
+		<div class="flex w-full flex-col">
+			<label
+				class="flex flex-col rounded-xl border-2 border-[#171738] bg-none p-2 font-bold"
+			>
+				Phone:
+				<input
+					type="text"
+					name="phone"
+					placeholder="(555)-555-5555"
+					class="bg-transparent font-normal"
+				/>
+			</label>
+		</div>
+	</div>
+
+	<div class="flex w-full flex-col items-center space-y-2">
+		<label
+			class="flex w-full flex-col items-start justify-start rounded-xl border-2 border-[#171738] bg-none p-2 font-bold"
+		>
+			Message:
+			<textarea
+				type="text"
+				name="message"
+				placeholder="How can we help?"
+				class="h-36 w-full bg-transparent font-normal placeholder:-translate-y-12"
+			></textarea>
+		</label>
+		<!-- {errors.email && <p>{errors.email}</p>} -->
+		<button
+			type="submit"
+			class="duration-600 w-36 rounded-md border-2 border-[#4343FE] py-2 text-center text-xs font-bold text-[#4343FE] transition hover:bg-[#4343FE] hover:text-[#FFFFFF] hover:ease-in sm:text-sm md:text-base lg:text-base"
+			>Submit</button
+		>
+	</div>
+</form>
+
+<script is:inline>
+	// import { z } from 'zod';
+	// import type { ZodType } from 'zod';
+	// import { atom } from 'nanostores'
+
+	// export const $counter = atom(0)
+	//     company: string,
+	//     name: string,
+	//     email: string,
+	//     phone: string,
+	//     note: string,
+	//     [key: string]: string
+
+	async function onSubmit(e) {
+		// formElem.onSubmit(data) = async(e) => {
+		e.preventDefault();
+		const options = {
+			method: "POST",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json;charset=UTF-8",
+			},
+			body: new FormData(formElem),
+		};
+
+		// let response = await fetch('/article/formdata/post/user', options);
+
+		// let result = await response.json();
+
+		// alert(result.message);
+		alert(options.body.get("name"));
+		// alert("test")
+	}
+
+	// import { isRegistered, registerUser } from "../../data/users"
+	// import { isValidEmail } from "../../utils/isValidEmail";
+
+	// const errors = { username: "", email: "", password: "" };
+	// if (Astro.request.method === "POST") {
+	//   try {
+	//     const data = await Astro.request.formData();
+	//     const name = data.get("username");
+	//     const email = data.get("email");
+	//     const password = data.get("password");
+	//     if (typeof name !== "string" || name.length < 1) {
+	//       errors.username += "Please enter a username. ";
+	//     }
+	//     if (typeof email !== "string" || !isValidEmail(email)) {
+	//       errors.email += "Email is not valid. ";
+	//     } else if (await isRegistered(email)) {
+	//       errors.email += "Email is already registered. ";
+	//     }
+	//     if (typeof password !== "string" || password.length < 6) {
+	//       errors.password += "Password must be at least 6 characters. ";
+	//     }
+	//     const hasErrors = Object.values(errors).some(msg => msg)
+	//     if (!hasErrors) {
+	//       await registerUser({name, email, password});
+	//       return Astro.redirect("/login");
+	//     }
+	//   } catch (error) {
+	//     if (error instanceof Error) {
+	//       console.error(error.message);
+	//     }
+	//   }
+	// }
+</script>

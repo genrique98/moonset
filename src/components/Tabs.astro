@@ -2,24 +2,27 @@
 import HeaderLink from "./HeaderLink.astro";
 
 const links = [
-    { href: "/", text: "Blog" },
-    { href: "/technical", text: "Technical"},
-    { href: "/versions", text: "Versions" },
+	{ href: "/", text: "Blog" },
+	{ href: "/technical", text: "Technical" },
+	{ href: "/versions", text: "Versions" },
 ];
 
 // make a small nav bar with two tabs (blog and technical), centered, styled with tailwindcss
 // the blog tab should be highlighted when on the blog page, and the technical tab should be highlighted when on the technical page
 // the blog tab should link to the blog page, and the technical tab should link to the technical page
 // the blog tab should be on the left, and the technical tab should be on the right
-
 ---
 
 <header class="w-full">
-    <nav class="flex flex-row items-center text-center justify-center w-full relative mx-auto text-black-500">
-        {links.map((link) => (
-            <div class="rounded-md border-2 border-[#4343FE] px-2 mx-2">
-                <HeaderLink href={link.href}>{link.text}</HeaderLink>
-            </div>
-        ))}
-    </nav>
+	<nav
+		class="text-black-500 relative mx-auto flex w-full flex-row items-center justify-center text-center"
+	>
+		{
+			links.map((link) => (
+				<div class="mx-2 rounded-md border-2 border-[#4343FE] px-2">
+					<HeaderLink href={link.href}>{link.text}</HeaderLink>
+				</div>
+			))
+		}
+	</nav>
 </header>

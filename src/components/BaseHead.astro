@@ -2,11 +2,32 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import "../styles/global.css";
+import { ViewTransitions } from "astro:transitions";
+
+interface SiteConfig {
+	author: string;
+	title: string;
+	description: string;
+	lang: string;
+	ogLocale: string;
+	shareMessage: string;
+	paginationSize: number;
+}
+
+export const siteConfig: SiteConfig = {
+	author: "Gabriel Ramirez", // Site author
+	title: "Moonset", // Site title.
+	description: "", // Description to display in the meta tags
+	lang: "en-GB",
+	ogLocale: "en_GB",
+	shareMessage: "Share this post", // Message to share a post on social media
+	paginationSize: 6, // Number of posts per page
+};
 
 export interface Props {
-  title: string;
-  description: string;
-  image?: string;
+	title: string;
+	description: string;
+	image?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -25,8 +46,13 @@ const { title, description, image = "/sphere-social.jpg" } = Astro.props;
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
+
+<ViewTransitions />
+
+<!-- SEO -->
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+<meta name="author" content={siteConfig.author} />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
@@ -41,3 +67,11 @@ const { title, description, image = "/sphere-social.jpg" } = Astro.props;
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+<!-- RSS auto-discovery -->
+<link
+	rel="alternate"
+	type="application/rss+xml"
+	title={siteConfig.title}
+	href="/rss.xml"
+/>

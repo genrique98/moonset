@@ -1,0 +1,51 @@
+<section>
+	<div class="mx-auto max-w-4xl py-32 sm:py-36 lg:py-36">
+		<div
+			class="flex w-full flex-col items-center border-0 border-red-400 text-center"
+		>
+			<h1
+				class="text-4xl font-bold tracking-tight text-brand-black sm:text-7xl"
+			>
+				<span class="text-brand-purple">Supersonic Websites</span>
+				<!-- <span>for<br></span> -->
+				<span>for Stellar Businesses</span>
+			</h1>
+			<p class="mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">
+				Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem
+				cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.
+			</p>
+			<div class="mt-10 flex items-center justify-center gap-x-6">
+				<a
+					href="#"
+					class="duration-600 rounded-md bg-brand-purple px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-500 hover:ease-in focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+					>Start here</a
+				>
+				<!-- <button type="submit" class="border-2 border-brand-purple rounded-md py-2 px text-center text-xs lg:text-base md:text-base sm:text-sm font-bold text-brand-purple w-36 hover:bg-brand-purple hover:text-[#FFFFFF] transition duration-600 hover:ease-in">Submit</button> -->
+				<a href="#" class="text-sm font-semibold leading-6 text-brand-black"
+					>Learn more <span aria-hidden="true">→</span></a
+				>
+			</div>
+		</div>
+	</div>
+	<div class="flex justify-center max-h-[26rem] h-[26rem]">
+		<!-- <img
+			id="hero"
+			src="/duotone-developer3.png"
+			width="800"
+			height="400"
+			alt="Hero Image"
+			class="z-10 h-fit w-full rounded-xl shadow-2xl sm:w-[600px] md:w-[600px] lg:w-[800px]"
+		/> -->
+		<img
+			id="hero"
+			src="/duotone-developer3.png"
+			alt="Hero Image"
+			class="rounded-xl shadow-2xl"
+		/>
+	</div>
+</section>
+<script>
+	import gsap from "gsap";
+	gsap.from("#hero", { opacity: 0, y: -50, duration: 3 });
+	
+</script>
