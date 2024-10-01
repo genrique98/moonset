@@ -1,57 +1,41 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import MobileMenu from "../components/Mobile-menu.astro";
-import Mobile from "../components/Mobile.tsx";
-import Mobile_test from "../components/Mobile-test";
-import Footer from "../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-import Tabs from "../components/Tabs.astro";
-
+import Form from "../components/Form.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<!DOCTYPE html>
-<html lang="en" class="flex justify-center">
-    <head>
-        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    </head>
-    <!-- <body class="w-prose max-w-4xl"> -->
-    <body class="px-4 lg:mt-5 md:mt-3 sm:mt-2 mt-2 mx-0 w-full lg:w-10/12">
-        <!-- <Header title={SITE_TITLE} /> -->
-        <!-- <MobileMenu /> -->
-        <!-- <Mobile client:load/> -->
-        <Mobile_test client:load/>
-        <main class="border-0 border-[#4343FE] w-full">
-          <section class="my-10 p-0 w-full lg:bg-[url('/full-haikei-2.svg')] md:bg-[url('/full-haikei-2.svg')] sm:bg-[url('/mobile-haikei-2.svg')] bg-[url('/mobile-haikei-2.svg')] bg-no-repeat bg-center lg:bg-cover bg-cover rounded-xl border-0 border-green-300 h-[80vh]">
-            <!-- <section class="mt-0 w-full lg:bg-[url('./full-haikei-2.svg')] md:bg-[url('./full-haikei-2.svg')] sm:bg-[url('./mobile-haikei-2.svg')] bg-[url('./mobile-haikei-2.svg')] bg-no-repeat  bg-center lg:bg-cover bg-cover rounded-xl "> -->
-                <div class="flex flex-row justify-between rounded-md border-0 border-[#4343FE]">
-                    <div class="w-1/3 md:w-1/5 lg:w-1/5 relative inline-block flex justify-center h-full border-0 border-red-400 p-4 lg:p-8 bg-[#171738] rounded-xl">
-                        <!-- <img src="/brain.png" width="300" height="300" alt="Hero Image" class="block rounded-full h-[300px] w-[300px]" /> -->
-                        <img src="/duotone-brain.png" width="300" height="300" alt="Hero Image" class="block rounded-lg lg:w-[300px] md:w-[200px] sm:w-[200px] w-[200px] z-10 border-0 border-[#4343FE]" />
-                        <!-- <div class="absolute top-10 left-10 w-[300px] h-[300px] rounded-full z-10 bg-gradient-to-r from-[#171738] to-blue-500"></div> -->
-                        <!-- <svg viewBox="0 0 100 100" class="lg:w-fit  md:w-[160px] sm:w-[200px] max-w-[300px] w-[300px] w-auto absolute object-cover mt-4 ml-4 shrink fill-current">
-                            <circle height="50" width="50" cx="50" cy="50" r="50" fill="#4343FE" />
-                        </svg> -->
-                    </div>
-                    <div class="w-4/5 ml-4">
-                        <div class="flex flex-col items-start justify-center bg-[#171738] rounded-xl w-full h-full p-4">
-                            <h1 class="text-left text-4xl font-bold text-[#EDF0FF]">
-                                <span>Get in touch!</span>
-                            </h1>
-                            <p class="lg:ml-10 ml-5 text-left lg:text-2xl md:text-xl text-lg font-semi bold text-[#EDF0FF]">this is a form</p>
-                            <p class="lg:ml-10 ml-5 text-left lg:text-2xl md:text-xl text-lg font-semi bold text-[#EDF0FF]">name</p>
-                            <p class="lg:ml-10 ml-5 text-left lg:text-2xl md:text-xl text-lg font-semi bold text-[#EDF0FF]">company</p>
-                            <p class="lg:ml-10 ml-5 text-left lg:text-2xl md:text-xl text-lg font-semi bold text-[#EDF0FF]">email</p>
-                            <p class="lg:ml-10 ml-5 text-left lg:text-2xl md:text-xl text-lg font-semi bold text-[#EDF0FF]">budget</p>
-                            <p class="lg:ml-10 ml-5 text-left lg:text-2xl md:text-xl text-lg font-semi bold text-[#EDF0FF]">what can we help you with?</p>
-
-                        </div>
-                    </div>
-                    
-                </div>
-            </section>
-
-        </main>
-        <Footer />
-    </body>
-</html>
+<BaseLayout title="Insights" description="testing">
+	<div class="pt-16 sm:pt-16">
+		<section
+			class="h-[80vh] w-full rounded-xl border-0 border-green-300 bg-[url('/mobile-haikei-2.svg')] bg-cover bg-center bg-no-repeat p-0 sm:bg-[url('/mobile-haikei-2.svg')] md:bg-[url('/full-haikei-2.svg')] lg:bg-[url('/full-haikei-2.svg')] lg:bg-cover"
+		>
+			<!-- <section class="mt-0 w-full lg:bg-[url('./full-haikei-2.svg')] md:bg-[url('./full-haikei-2.svg')] sm:bg-[url('./mobile-haikei-2.svg')] bg-[url('./mobile-haikei-2.svg')] bg-no-repeat  bg-center lg:bg-cover bg-cover rounded-xl "> -->
+			<div
+				class="flex flex-col justify-center gap-y-2 rounded-md border-0 border-[#4343FE] md:flex-row md:justify-between md:gap-x-4"
+			>
+				<div
+					class="flex h-full w-full flex-col items-start justify-center rounded-xl border-2 border-[#171738] bg-none p-4 md:w-1/2"
+				>
+					<h1 class="text-left text-4xl font-bold text-[#171738]">
+						<span>Get in touch!</span>
+					</h1>
+					<p class="py-4">
+						Proin volutpat consequat porttitor cras nullam gravida at. Orci
+						molestie a eu arcu. Sed ut tincidunt integer elementum id sem. Arcu
+						sed malesuada et magna.
+					</p>
+					<p class="">+1 (555) 234-5678</p>
+					<p class="">hello@example.com</p>
+				</div>
+				<div class="w-full md:w-1/2">
+					<div
+						class="flex h-full w-full flex-col items-start justify-center rounded-xl border-2 border-[#171738] bg-none p-4"
+					>
+						<!-- <Form client:only="react"/> -->
+						<Form />
+						<!-- <Test client:load/> -->
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</BaseLayout>

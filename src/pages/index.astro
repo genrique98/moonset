@@ -1,189 +1,206 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import MobileMenu from "../components/Mobile-menu.astro";
-import Mobile from "../components/Mobile.tsx";
-import Mobile_test from "../components/Mobile-test";
-import Footer from "../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-import Tabs from "../components/Tabs.astro";
+import Hero from "../components/Hero.astro";
+import Thero from "../components/thero.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Cta from "../components/Cta.astro";
+import Clients from "../components/Clients.astro";
+// import Questions from "../components/Questions";
+import Questions from "../components/Questions.astro";
+import Disclosures from "../components/Disclosures";
+import Faq from "../sections/Faq.astro";
 
+
+const SITE_TITLE = "Moonset";
+const SITE_DESCRIPTION =
+	"A Web Development agency empowering stellar businesses.";
 ---
 
-<!DOCTYPE html>
-<html lang="en" class="flex justify-center">
-    <head>
-        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    </head>
-    <!-- <body class="w-prose max-w-4xl"> -->
-    <body class="px-4 lg:mt-5 md:mt-3 sm:mt-2 mt-2 mx-0 w-full lg:w-10/12">
-        <!-- <Header title={SITE_TITLE} /> -->
-        <!-- <MobileMenu /> -->
-        <!-- <Mobile client:load/> -->
-        <Mobile_test client:load/>
-        <!-- <main class="border-2 border-[#4343FE] w-full flex flex-col justify-center lg:w-10/12 "> -->
-        <!-- <main class="border-2 border-[#4343FE] w-full sm:w-full md:w-11/12 lg:w-10/12 lg:flex lg:items-end lg:flex-col"> -->
-        <main class="border-0 border-[#4343FE] w-full">
-            <!-- <section class="mt-5 p-0 w-full ">
-                <div class="flex flex-col rounded-md border-0 border-[#4343FE] w-full h-[60vh] justify-center items-center relative inline-block ">
-                    <div class="w-full h-full absolute flex justify-end">
-                        <div class="w-full lg:w-1/2 md:w-2/3 relative inline-block flex justify-center p-4 items-center">
-                            <img src="/developer.png" width="800" height="400" alt="Hero Image" class="rounded-xl h-fit w-46 z-10 sm:w-[600px] md:w-[600px] lg:w-[800px]"/>
-                            <svg viewBox="0 0 800 400"  class="lg:w-[800px] md:w-fit sm:w-fit w-fit rounded-xl absolute block mt-8 ml-8 flex-no-shrink fill-current" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="0" y="0" width="800" height="400" fill="#4343FE"/>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="flex flex-col items-start justify-end w-full h-full z-10">
-                        <h1 class="text-left lg:text-5xl md:text-4xl sm:text-3xl text-3xl font-bold text-[#171738]">
-                            <span>Empowering Businesses <br/>with </span>
-                            <span class="text-[#4343FE]">Supersonic Websites</span>
-                        </h1>
-                        <button class="border-2 border-orange-400 rounded-md mt-5 py-2 px text-center text-base font-bold text-orange-400 w-36">Start Here</button>
-                    </div>
-                </div>
-            </section> -->
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+	<Hero/>
 
+	<hr class="mx-10 border-0" />
 
-            <section class="mt-5 p-0 w-full lg:bg-[url('/full-haikei-2.svg')] md:bg-[url('/full-haikei-2.svg')] sm:bg-[url('/mobile-haikei-2.svg')] bg-[url('/mobile-haikei-2.svg')] bg-no-repeat bg-center lg:bg-cover bg-cover rounded-xl border-0 border-green-300 h-[80vh]">
-                <div class="flex flex-col rounded-md border-0 border-[#4343FE] w-full h-full justify-center items-center relative">
-                    <div class="w-full h-2/3 flex lg:flex-row flex-col justify-center border-0 border-red-400">
-                        <div class="w-full  relative  flex flex-row justify-center p-4 items-start border-0 border-green-300 ">
-                            <img src="/duotone-developer.png" width="800" height="400" alt="Hero Image" class="rounded-xl h-fit w-full z-10 sm:w-[600px] md:w-[600px] lg:w-[800px]"/>
-                            <!-- <div class="block absolute top-0 left-0 w-full h-[360px] rounded-xl z-1 bg-gradient-to-r from-[#171738] to-blue-500"></div> -->
-                            <!-- <div class="rounded-md absolute block mt-0 ml-0 z-1 bg-[url('/rect.svg')]"></div> -->
-                            <svg viewBox="0 0 800 400"  class="overflow-hidden sm:w-[600px] md:w-[600px] lg:w-fit w-fit rounded-xl absolute block mt-4 ml-8 shrink fill-current" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="0" y="0" width="800" height="400" fill="#4343FE"/>
-                            </svg>
-                        </div>
-                        <div class="flex flex-col items-start justify-center lg:justify-end md:justify-end sm:justify-center w-full h-full z-10 p-4 border-0 border-red-400">
-                            <h1 class="text-left lg:text-5xl md:text-4xl sm:text-3xl text-3xl font-bold text-[#171738]">
-                                <span>Empowering Businesses with</span>
-                                <span class="text-[#4343FE]">Supersonic Websites</span>
-                            </h1>
-                            <button class="border-2 border-orange-400 rounded-md mt-5 py-2 px text-center text-xs lg:text-base md:text-base sm:text-sm font-bold text-orange-400 w-36 hover:bg-orange-400 hover:text-[#FFFFFF] transition duration-600 hover:ease-in"><a href="/about">Start Here</a></button>
-                        </div>
-                    </div>
-                </div>
-            </section>
+	<!-- <Clients/> -->
 
-            <hr class="my-10 mx-10 border-[#171738]" />
+	<!-- <section class="mt-0 w-full lg:bg-[url('./full-haikei-2.svg')] md:bg-[url('./full-haikei-2.svg')] sm:bg-[url('./mobile-haikei-2.svg')] bg-[url('./mobile-haikei-2.svg')] bg-no-repeat  bg-center lg:bg-cover bg-cover rounded-xl "> -->
+	<section id="test" class="mt-0 w-full rounded-xl flex flex-col gap-y-32">
+		<div
+			class="flex flex-row justify-between rounded-md border-0 border-brand-black max-h-[22rem] h-[22rem] max-h-full md:max-h-screen"
+		>
+			<div
+				class=" flex h-full w-1/3 justify-end rounded-xl border-0 border-brand-black bg-none p-4 md:w-1/3 lg:w-1/3 lg:p-0"
+			>
+				<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" class="pr-4">
+					<rect x="0" y="0" width="100%" height="100%" rx="15" ry="15" style="fill:#4343FE;" />
+				</svg>
+				<img
+					id="a"
+					src="/duotone-brain2.png"
+					alt="Hero Image"
+					class="rounded-lg border-0 border-brand-black"
+				/>
 
-            <section class="mt-0 w-full lg:bg-[url('./full-haikei-2.svg')] md:bg-[url('./full-haikei-2.svg')] sm:bg-[url('./mobile-haikei-2.svg')] bg-[url('./mobile-haikei-2.svg')] bg-no-repeat  bg-center lg:bg-cover bg-cover rounded-xl ">
-                <div class="flex flex-row justify-between rounded-md border-0 border-[#4343FE]">
-                    <div class="w-1/3 md:w-1/5 lg:w-1/5 relative inline-block flex justify-center h-full border-0 border-red-400 p-4 lg:p-8 bg-[#171738] rounded-xl">
-                        <!-- <img src="/brain.png" width="300" height="300" alt="Hero Image" class="block rounded-full h-[300px] w-[300px]" /> -->
-                        <img src="/duotone-brain.png" width="300" height="300" alt="Hero Image" class="block rounded-lg lg:w-[300px] md:w-[200px] sm:w-[200px] w-[200px] z-10 border-0 border-[#4343FE]" />
-                        <!-- <div class="absolute top-10 left-10 w-[300px] h-[300px] rounded-full z-10 bg-gradient-to-r from-[#171738] to-blue-500"></div> -->
-                        <!-- <svg viewBox="0 0 100 100" class="lg:w-fit  md:w-[160px] sm:w-[200px] max-w-[300px] w-[300px] w-auto absolute object-cover mt-4 ml-4 shrink fill-current">
-                            <circle height="50" width="50" cx="50" cy="50" r="50" fill="#4343FE" />
-                        </svg> -->
-                    </div>
-                    <div class="w-4/5 ml-4">
-                        <div class="flex flex-col items-start justify-center bg-[#171738] rounded-xl w-full h-full p-4">
-                            <h1 class="mb-2 text-left text-4xl font-bold text-[#EDF0FF]">
-                                <span>Philosophy</span>
-                            </h1>
-                            <p class="lg:ml-10 ml-5 text-left lg:text-2xl md:text-xl text-lg font-semi bold text-[#EDF0FF]">We strive to bring your ideas into reality as smoothly as possible. Our workflows are designed to prioritize your project's specifications early on, move fast, and produce a stellar solution.</p>
+			</div>
+			<div class="ml-4 w-2/3">
+				<div
+					class="flex h-full w-full flex-col items-start justify-center rounded-xl bg-brand-black p-10 gap-y-10"
+				>
+					<h2 class="text-left text-6xl font-bold text-brand-white">
+						<span>Philosophy</span>
+					</h2>
+					<p
+						class="font-normal ml-5 text-left text-lg text-brand-white md:text-lg lg:ml-10 lg:text-lg"
+					>
+						We strive to bring your ideas into reality as smoothly as possible.
+						Our workflows are designed to prioritize your project's
+						specifications early on, move fast, and produce a stellar solution.
+					</p>
+				</div>
+			</div>
+		</div>
 
-                        </div>
-                    </div>
-                    
-                </div>
-            </section>
+		<div
+			class="flex flex-row justify-between rounded-md border-0 border-brand-black max-h-[22rem] h-[22rem] max-h-full md:max-h-screen"
+		>
+			<div class="w-2/3">
+				<div
+					class="flex h-full w-full flex-col items-start justify-center rounded-xl bg-brand-black p-10 gap-y-10"
+				>
+					<h2 class="text-left text-6xl font-bold text-brand-white">
+						<span>Expertise</span>
+					</h2>
+					<p
+						class="font-normal ml-5 text-left text-lg text-brand-white md:text-lg lg:ml-10 lg:text-lg"
+					>
+						Web design and development tailored for small businesses anywhere in
+						the United States. Attract more customers with highly efficient
+						websites!
+					</p>
+				</div>
+			</div>
+			<div
+				class="relative ml-4 inline-block flex h-full w-1/3 justify-center rounded-xl border-0 border-brand-black bg-none p-4 md:w-1/3 lg:w-1/3 lg:p-0"
+			>
+				<img
+					src="/duotone-rocket.png"
+					alt="Hero Image"
+					class="rounded-lg border-0 border-brand-black"
+				/>
+				<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" class="pl-4">
+					<rect x="0" y="0" width="100%" height="100%" rx="15" ry="15" style="fill:#4343FE;" />
+				</svg>
+			</div>
+		</div>
 
-            <section class="my-10 w-full lg:bg-[url('./full-haikei-2.svg')] md:bg-[url('./full-haikei-2.svg')] sm:bg-[url('./mobile-haikei-2.svg')] bg-[url('./mobile-haikei-2.svg')] bg-no-repeat  bg-center lg:bg-cover bg-cover rounded-xl">
-                <div class="flex flex-row justify-between rounded-md border-0 border-[#4343FE]">
-                    <div class="w-4/5">
-                        <div class="flex flex-col items-start justify-center bg-[#171738] rounded-xl w-full h-full p-4">
-                            <h1 class="mb-2 text-left text-4xl font-bold text-[#EDF0FF]">
-                                <span>Expertise</span>
-                            </h1>
-                            <p class="lg:ml-10 ml-5 text-left lg:text-2xl md:text-xl text-lg font-semi bold text-[#EDF0FF]">Web design and development tailored for small businesses anywhere in the United States. Attract more customers with highly efficient websites!</p>
+		<div
+			class="flex flex-row justify-between rounded-md border-0 border-brand-black max-h-[22rem] h-[22rem] max-h-full md:max-h-screen"
+		>
+			<div
+				class="relative inline-block flex h-full w-1/3 justify-center rounded-xl border-0 border-brand-black bg-none p-4 md:w-1/3 lg:w-1/3 lg:p-0"
+			>
+			<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" class="pr-4">
+				<rect x="0" y="0" width="100%" height="100%" rx="15" ry="15" style="fill:#4343FE;" />
+			</svg>
+				<img
+					src="/duotone-brain3.png"
+					alt="Hero Image"
+					class="rounded-lg border-0 border-brand-black"
+				/>
+			</div>
+			<div class="ml-4 w-2/3">
+				<div
+					class="flex h-full w-full flex-col items-start justify-center rounded-xl bg-brand-black p-10 gap-y-10"
+				>
+					<h2 class="text-left text-6xl font-bold text-brand-white">
+						<span>Services & Solutions</span>
+					</h2>
+					<p
+						class="font-normal ml-5 text-left text-lg text-brand-white md:text-lg lg:ml-10 lg:text-lg"
+					>
+						We primarely focus on landing pages. Let us know how we can help
+						you! web Development - Mobile friendly - SEO - Creative direction
+						and branding - UI / UX Design
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
 
-                        </div>
-                    </div>
+	<hr class="mx-10 border-0" />
 
-                    <div class="w-1/3 md:w-1/5 lg:w-1/5 relative inline-block flex justify-center h-full border-0 border-red-400 p-4 lg:p-8 bg-[#171738] rounded-xl ml-4">
-                        <!-- <img src="/brain.png" width="300" height="300" alt="Hero Image" class="block rounded-full h-[300px] w-[300px]" /> -->
-                        <img src="/duotone-brain.png" width="300" height="300" alt="Hero Image" class="block rounded-lg lg:w-[300px] md:w-[200px] sm:w-[200px] w-[200px] z-10 border-0 border-[#4343FE]" />
-                        <!-- <div class="absolute top-10 left-10 w-[300px] h-[300px] rounded-full z-10 bg-gradient-to-r from-[#171738] to-blue-500"></div> -->
-                        <!-- <svg viewBox="0 0 100 100" class="lg:w-fit  md:w-[160px] sm:w-[200px] max-w-[300px] w-[300px] w-auto absolute object-cover mt-4 ml-4 shrink fill-current">
-                            <circle height="50" width="50" cx="50" cy="50" r="50" fill="#4343FE" />
-                        </svg> -->
-                    </div>
-                </div>
-            </section>
+	<section class="w-full rounded-xl">
+		<div
+			class="flex flex-row justify-between rounded-md border-0 border-brand-black max-h-[22rem] h-[18rem] max-h-full md:max-h-screen"
+		>
+			<div
+				class="relative flex h-full w-1/3 flex-col justify-center rounded-xl border-0 border-brand-black bg-none p-4 md:w-1/5 lg:w-1/5 lg:p-0"
+			>
+				<img
+					src="/duotone-brain.png"
+					alt="Hero Image"
+					class="rounded-lg border-0 border-brand-black"
+				/>
+				<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" class="pt-4">
+					<rect x="0" y="0" width="100%" height="100%" rx="15" ry="15" style="fill:#4343FE;" />
+				</svg>
+			</div>
+			<div class="mx-4 w-3/5">
+				<div
+					class="flex h-full w-full flex-col items-start justify-center rounded-xl border-0 border-brand-black bg-brand-white p-8 gap-y-10 text-center"
+				>
+					<h2 class="flex text-center text-6xl font-bold text-brand-black justify-center">
+						<span>Our Work</span>
+					</h2>
+					<p
+						class="lg:text-lg font-normal text-left text-lg text-brand-black md:text-lg"
+					>
+						This is a description of our clients' success stories. They had a
+						problem and we provided a solution that improved their online
+						presence, saved them time, and boosted their revenue.
+					</p>
+				</div>
+			</div>
+			<div
+				class="relative flex h-full w-1/3 flex-col justify-center rounded-xl border-2 border-brand-black bg-none p-4 md:w-1/5 lg:w-1/5 lg:p-8"
+			>
+				<h3 class="text-center text-lg font-bold text-brand-black">
+					<span>Smart Transporation</span>
+				</h3>
+				<img
+					src="/duotone-brain.png"
+					alt="Hero Image"
+					class="rounded-lg border-0 border-brand-black"
+				/>
+			</div>
+		</div>
+	</section>
 
-            <section class="mt-0 w-full lg:bg-[url('./full-haikei-2.svg')] md:bg-[url('./full-haikei-2.svg')] sm:bg-[url('./mobile-haikei-2.svg')] bg-[url('./mobile-haikei-2.svg')] bg-no-repeat  bg-center lg:bg-cover bg-cover rounded-xl ">
-                <div class="flex flex-row justify-between rounded-md border-0 border-[#4343FE]">
-                    <div class="w-1/3 md:w-1/5 lg:w-1/5 relative inline-block flex justify-center h-full border-0 border-red-400 p-4 lg:p-8 bg-[#171738] rounded-xl">
-                        <!-- <img src="/brain.png" width="300" height="300" alt="Hero Image" class="block rounded-full h-[300px] w-[300px]" /> -->
-                        <img src="/duotone-brain.png" width="300" height="300" alt="Hero Image" class="block rounded-lg lg:w-[300px] md:w-[200px] sm:w-[200px] w-[200px] z-10 border-0 border-[#4343FE]" />
-                        <!-- <div class="absolute top-10 left-10 w-[300px] h-[300px] rounded-full z-10 bg-gradient-to-r from-[#171738] to-blue-500"></div> -->
-                        <!-- <svg viewBox="0 0 100 100" class="lg:w-fit  md:w-[160px] sm:w-[200px] max-w-[300px] w-[300px] w-auto absolute object-cover mt-4 ml-4 shrink fill-current">
-                            <circle height="50" width="50" cx="50" cy="50" r="50" fill="#4343FE" />
-                        </svg> -->
-                    </div>
-                    <div class="w-4/5 ml-4">
-                        <div class="flex flex-col items-start justify-center bg-[#171738] rounded-xl w-full h-full p-4">
-                            <h1 class="mb-2 text-left text-4xl font-bold text-[#EDF0FF]">
-                                <span>Services & Solutions</span>
-                            </h1>
-                            <p class="lg:ml-10 ml-5 text-left lg:text-2xl md:text-xl text-lg font-semi bold text-[#EDF0FF]">We primarely focus on landing pages. Let us know how we can help you! web Development - Mobile friendly - SEO - Creative direction and branding - UI / UX Design</p>
+	<hr class="mx-10 border-0" />
 
-                        </div>
-                    </div>
-                    
-                </div>
-            </section>
+	<Faq/>
 
-            <hr class="my-10 mx-10 border-[#171738]" />
+	<!-- <Cta/> -->
+</BaseLayout>
 
-            <section class="my-10 w-full lg:bg-[url('./full-haikei-2.svg')] md:bg-[url('./full-haikei-2.svg')] sm:bg-[url('./mobile-haikei-2.svg')] bg-[url('./mobile-haikei-2.svg')] bg-no-repeat  bg-center lg:bg-cover bg-cover rounded-xl ">
-                <div class="flex flex-row justify-between rounded-md border-0 border-[#4343FE]">
-                    <div class="w-1/3 md:w-1/5 lg:w-1/5 relative inline-block flex justify-center h-full border-0 border-red-400 p-4 lg:p-8 bg-[#171738] rounded-xl">
-                        <!-- <img src="/brain.png" width="300" height="300" alt="Hero Image" class="block rounded-full h-[300px] w-[300px]" /> -->
-                        <img src="/duotone-brain.png" width="300" height="300" alt="Hero Image" class="block rounded-lg lg:w-[300px] md:w-[200px] sm:w-[200px] w-[200px] z-10 border-0 border-[#4343FE]" />
-                        <!-- <div class="absolute top-10 left-10 w-[300px] h-[300px] rounded-full z-10 bg-gradient-to-r from-[#171738] to-blue-500"></div> -->
-                        <!-- <svg viewBox="0 0 100 100" class="lg:w-fit  md:w-[160px] sm:w-[200px] max-w-[300px] w-[300px] w-auto absolute object-cover mt-4 ml-4 shrink fill-current">
-                            <circle height="50" width="50" cx="50" cy="50" r="50" fill="#4343FE" />
-                        </svg> -->
-                    </div>
-                    <div class="w-4/5 ml-4">
-                        <div class="flex flex-col items-start justify-center bg-[#EDF0FF] border-2 border-[#171738] rounded-xl w-full h-full p-4">
-                            <h1 class="text-left text-4xl font-bold text-[#171738] ">
-                                <span>Our Work</span>
-                            </h1>
-                            <p class="lg:ml-10 ml-5 text-left lg:text-2xl md:text-xl text-lg font-semi bold text-[#171738]">This is a description of our clients' success stories. They had a problem and we provided a solution that improved their online presence, saved them time, and boosted their revenue.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+<script>
+	import gsap from "gsap";
+	import ScrollTrigger from "gsap/src/ScrollTrigger";
+	gsap.registerPlugin(ScrollTrigger)
 
-            <section class="my-10 w-full lg:bg-[url('./full-haikei-2.svg')] md:bg-[url('./full-haikei-2.svg')] sm:bg-[url('./mobile-haikei-2.svg')] bg-[url('./mobile-haikei-2.svg')] bg-no-repeat  bg-center lg:bg-cover bg-cover rounded-xl ">
-                <div class="flex flex-row justify-between rounded-md border-0 border-[#4343FE]">
-                    <div class="w-1/2 flex flex-col justify-center h-full border-0 border-red-400 p-4 lg:p-8 bg-[#171738] rounded-xl">
-                        <!-- <img src="/brain.png" width="300" height="300" alt="Hero Image" class="block rounded-full h-[300px] w-[300px]" /> -->
-                        <img src="/duotone-brain.png" width="300" height="300" alt="Hero Image" class="block rounded-lg lg:w-[300px] md:w-[200px] sm:w-[200px] w-[200px] z-10 border-0 border-[#4343FE]" />
-                        <p class="text-[#EDF0FF]">visit site</p>
-                        <!-- <div class="absolute top-10 left-10 w-[300px] h-[300px] rounded-full z-10 bg-gradient-to-r from-[#171738] to-blue-500"></div> -->
-                        <!-- <svg viewBox="0 0 100 100" class="lg:w-fit  md:w-[160px] sm:w-[200px] max-w-[300px] w-[300px] w-auto absolute object-cover mt-4 ml-4 shrink fill-current">
-                            <circle height="50" width="50" cx="50" cy="50" r="50" fill="#4343FE" />
-                        </svg> -->
-                    </div>
-                    <div class="w-1/2 ml-4">
-                        <div class="flex flex-col items-start justify-center bg-[#EDF0FF] border-2 border-[#171738] rounded-xl w-full h-full p-4">
-                            <h1 class="text-left text-4xl font-bold text-[#171738] ">
-                                <span>Smart Transporation</span>
-                            </h1>
-                            <p class="lg:ml-10 ml-5 text-left lg:text-2xl md:text-xl text-lg font-semi bold text-[#171738]">This is a description of our clients' success stories. They had a problem and we provided a solution that improved their online presence, saved them time, and boosted their revenue.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-        </main>
-        <Footer />
-    </body>
-</html>
+	gsap.from("#a", {
+		scrollTrigger: {
+			trigger: "#hero",
+			start: "top center",
+			end: "top 100px",
+			scrub: 1,
+			// markers: true,
+			// toggleActions: "restart pause reverse pause"
+		},
+		x: -200,
+		opacity: 0,
+		rotation: 30,
+		ease: "none",
+		duration: 3,
+	});
+	
+</script>
