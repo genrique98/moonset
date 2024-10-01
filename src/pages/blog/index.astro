@@ -1,62 +1,71 @@
 ---
-import BaseHead from "../../components/BaseHead.astro";
-import Header from "../../components/Header.astro";
-import Footer from "../../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
-import Mobile_test from "../../components/Mobile-test";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const posts = (await getCollection("blog")).sort(
-  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
 );
+const SITE_TITLE = "Moonset Blog";
+const SITE_DESCRIPTION =
+	"A Web Development agency empowering stellar businesses.";
 ---
 
-<!DOCTYPE html>
-<html lang="en" class="flex justify-center">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    <style>
-      ul {
-        list-style-type: none;
-        padding: unset;
-      }
-      ul li {
-        display: flex;
-      }
-      ul li :global(time) {
-        flex: 0 0 130px;
-        font-style: italic;
-        color: #595959;
-      }
-      ul li a:visited {
-        color: #8e32dc;
-      }
-    </style>
-  </head>
-  <body class="px-4 lg:mt-5 md:mt-3 sm:mt-2 mt-2 mx-0  w-screen border-0 border-[#4343FE] w-full lg:w-10/12">
-    <!-- <Header /> -->
-    <Mobile_test client:load />
-    <main class="h-screen">
-      <section class="border-0 border-[#4343FE] mt-5 p-0 w-full h-1/3 flex flex-col justify-start">
-        <h1 class="text-3xl font-bold text-[#4343FE] text-left">Insights</h1>
-        <ul class="border-0 border-red-400 flex flex-col py-4 mt-4">
-          {
-            posts.map((post) => (
-              <li class="border-0 border-[#4343FE] h-10 flex justify-start items-center">
-                <a href={`/blog/${post.slug}/`} class="indent-4">
-                  <FormattedDate date={post.data.pubDate} class=""/>
-                  <span class="ml-3">
-                    {post.data.title}
-                  </span>
-                  <p class="text-base lg:text-base md:text-base sm:text-base text-[#171738]">{post.data.description}</p>
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </section>
-    </main>
-    <Footer />
-  </body>
-</html>
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+	<div class="w-full py-16 sm:py-16">
+		<!-- <div class="mx-auto max-w-7xl px-6 lg:px-8"> -->
+		<div class="mx-auto w-full text-brand-black lg:mx-0">
+			<h2
+				class="text-3xl font-bold tracking-tight text-brand-black sm:text-4xl"
+			>
+				Insights
+			</h2>
+			<p class="mt-2 text-lg leading-8 text-gray-600">
+				Learn how to make your business stand out.
+			</p>
+		</div>
+		<div
+			class="mx-auto mt-10 grid w-full grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+		>
+			{
+				posts.map((post) => (
+					<article class="flex w-full flex-col items-start justify-between">
+						<div class="flex items-center gap-x-4 text-xs">
+							<FormattedDate date={post.data.pubDate} class="" />
+							<a class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">
+								Marketing
+							</a>
+						</div>
+						<div class="group relative">
+							<h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+								<a href={`/blog/${post.slug}/`}>
+									<span class="absolute inset-0" />
+									{post.data.title}
+								</a>
+							</h3>
+							<p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
+								{post.data.description}
+							</p>
+						</div>
+						<div class="relative mt-8 flex items-center gap-x-4">
+							<img
+								src="/thesphere.png"
+								alt=""
+								class="h-10 w-10 rounded-full bg-gray-50"
+							/>
+							<div class="text-sm leading-6">
+								<p class="font-semibold text-gray-900">
+									<a href="#">
+										<span class="absolute inset-0" />
+										Gabriel Ramirez
+									</a>
+								</p>
+								<p class="text-gray-600">Co-Founder / CTO</p>
+							</div>
+						</div>
+					</article>
+				))
+			}
+		</div>
+	</div>
+</BaseLayout>
